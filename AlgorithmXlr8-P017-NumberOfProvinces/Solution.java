@@ -14,6 +14,7 @@ public class Main {
                 int x = sc.nextInt();
                 if(i != j && x == 1) {
                     adj.get(i).add(j);
+                    adj.get(j).add(i);
                 }
             }
         }
