@@ -22,13 +22,23 @@ public class Main {
         int cnt = 0;
         for(int i=0 ; i<n ; i++) {
             if(!vis[i]) {
-                //dfs(i, vis, adj)
-                bfs(i, vis, adj);
+                dfs(i, vis, adj);
+                // bfs(i, vis, adj);
                 cnt++;
             }
         }
 
         System.out.println(cnt);
+    }
+
+    private static void dfs(int node, boolean[] vis, List<List<Integer>> adj) {
+        vis[node] = true;
+
+        for(int adjNode : adj.get(node)) {
+            if(!vis[adjNode]) {
+                dfs(adjNode, vis, adj);
+            }
+        }
     }
 
     private static void bfs(int node, boolean[] vis, List<List<Integer>> adj) {
